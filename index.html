@@ -69,11 +69,11 @@
     }
 
     function getContext() {
-      liff.getElementById("type").append(liff.getContext().type) // chat 1 on 1 , group , room
-      liff.getElementById("viewType").append(liff.getContext().viewType) // compact,tall,full
-      liff.getElementById("utouId").append(liff.getContext().utouId)
-      liff.getElementById("roomId").append(liff.getContext().roomId)
-      liff.getElementById("groupId").append(liff.getContext().groupId)
+      document.getElementById("type").append(liff.getContext().type) // chat 1 on 1 , group , room
+      document.getElementById("viewType").append(liff.getContext().viewType) // compact,tall,full
+      document.getElementById("utouId").append(liff.getContext().utouId)
+      document.getElementById("roomId").append(liff.getContext().roomId)
+      document.getElementById("groupId").append(liff.getContext().groupId)
     }
 
     async function getUserProfile() {
