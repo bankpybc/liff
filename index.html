@@ -129,7 +129,7 @@
       //alert("LINE Developers x Skooldio")
       await liff.init({ liffId: "1655761454-6gWrG01j" })
       document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-      if(liff.isLoggedIn){
+      if(liff.isLoggedIn()){
         getEnvironment()
         getUserProfile()
         getContext()
