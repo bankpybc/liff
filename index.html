@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.css" media="all">
 
 </head>
-/**/
+
 
 <body>
   <p id="os"><b>OS:</b> </p>
@@ -39,7 +39,7 @@
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
-
+  <button id="btnClose" onclick="insertCloud()">insertCloud</button>
 
 
   <scrip src="https://static.line-scdn.net/liff/edge/versions/2.8.0/sdk.js"></scrip>
@@ -110,6 +110,19 @@
       }
     }
 
+    function insertCloud(){
+      cloudDB.collection("user").add({
+              userId: userId,
+              displayName: displayName,
+          })
+          .then(function(docRef){
+            console.log("Document written with ID" , docRef.id);
+          })
+          .catch(function(error){
+            console.error("Error adding document", error);
+          })
+          
+    }
     function getContext() {
       document.getElementById("type").append(liff.getContext().type) // chat 1 on 1 , group , room
       document.getElementById("viewType").append(liff.getContext().viewType) // compact,tall,full
@@ -151,17 +164,6 @@
           getContext()
           getFriendship()
           createUniversalLink()
-          cloudDB.collection("user").add({
-              userId: userId,
-              displayName: displayName,
-          })
-          .then(function(docRef){
-            console.log("Document written with ID" , docRef.id);
-          })
-          .catch(function(error){
-            console.error("Error adding document", error);
-          })
-          
         } else {
           liff.login()
         }
