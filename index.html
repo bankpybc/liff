@@ -163,13 +163,14 @@
     }
     
     function insert(){
-      
-      cloudDb.collection("user").add({
-        UserId: userId,
-        DisplayName: displayName
+      let id = userId;
+      let name = displayName
+      cloudDb.collection("user").doc(id).set({
+        UserId: id,
+        DisplayName: name
       })
       .then(function(docRef){
-        console.log("Document written with ID", docRef.id);
+        console.log("Document written with ID", id);
       })
       .catch(function(error){
         console.error("Error adding document",error);
