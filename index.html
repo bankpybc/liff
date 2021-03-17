@@ -56,7 +56,7 @@
     };
     
     firebase.initializeApp(firebaseConfig);
-    let cloudDb = firebase.firestore();
+    let cloudDB = firebase.firestore();
 
   </script>
 
@@ -164,8 +164,9 @@
     
     function insert(){
       let id = userId;
-      let name = displayName
-      cloudDb.collection("user").doc(id).set({
+      let name = displayName;
+      cloudDB.collection("user").doc(id).set(
+        {
         UserId: id,
         DisplayName: name
       })
