@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css" media="all">
 
 </head>
+
 <body>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
@@ -37,6 +38,27 @@
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+  <script>
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCKcc7ZTsorh4xTzTecalmvytFqRzAl0_s",
+      authDomain: "line-bot-briend-qcud.firebaseapp.com",
+      databaseURL: "https://line-bot-briend-qcud-default-rtdb.firebaseio.com",
+      projectId: "line-bot-briend-qcud",
+      storageBucket: "line-bot-briend-qcud.appspot.com",
+      messagingSenderId: "562983887948",
+      appId: "1:562983887948:web:7d2df2b4f45bcb91a780e9",
+      measurementId: "G-BEEKWDXT9Q"
+    };
+    
+    firebase.initializeApp(firebaseConfig);
+    let cloudDb = firebase.firestore();
+
+  </script>
 
 
 
@@ -139,7 +161,13 @@
         document.getElementById("btnClose").style.display = "none"
       }
     }
-
+    
+    function insert(){
+      cloudDB.collection("user").add({
+        UserId: userId,
+        DisplayName: displayName
+      })
+    }
     async function main() {
       liff.ready.then(() => {
         document.getElementById("isLoggedIn").append(liff.isLoggedIn())
@@ -149,6 +177,7 @@
           getContext()
           getFriendship()
           createUniversalLink()
+          insert()
         } else {
           liff.login()
         }
@@ -157,7 +186,7 @@
     }
     main()
 
-  </script>
-</body>
+  </s >
+</body >
 
-</html>
+</html >
