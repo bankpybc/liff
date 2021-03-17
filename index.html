@@ -163,6 +163,7 @@
     }
     
     function insert(){
+      
       cloudDB.collection("user").add({
         UserId: userId,
         DisplayName: displayName
@@ -182,7 +183,7 @@
           getUserProfile()
           getContext()
           getFriendship()
-          createUniversalLink()
+         // createUniversalLink()
           insert()
         } else {
           liff.login()
