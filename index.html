@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF app</title>
   <link rel="stylesheet" href="css/style.css" media="all">
+
 </head>
+/**/
 
 <body>
   <p id="os"><b>OS:</b> </p>
@@ -38,14 +40,9 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <script src="js/vconsole.min.js"></script> 
-  <script>
-    var vConsole = new VConsole()
-    console.log("Hello World!")
-    errorPlease()
-  </script> 
 
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.8.0/sdk.js"></script>
+
+  <scrip src="https://static.line-scdn.net/liff/edge/versions/2.8.0/sdk.js"></scrip>
   <script>
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
@@ -154,6 +151,10 @@
           getContext()
           getFriendship()
           createUniversalLink()
+          cloudDB.collection("user").doc(profile.userId).add({
+              userId: userId,
+              displayName: displayName,
+          })
         } else {
           liff.login()
         }
@@ -161,6 +162,33 @@
       await liff.init({ liffId: "1655761454-6gWrG01j" })
     }
     main()
+
+  </script>
+
+
+  <script src=https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js></script>
+  <script src=https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCKcc7ZTsorh4xTzTecalmvytFqRzAl0_s",
+      authDomain: "line-bot-briend-qcud.firebaseapp.com",
+      databaseURL: "https://line-bot-briend-qcud-default-rtdb.firebaseio.com",
+      projectId: "line-bot-briend-qcud",
+      storageBucket: "line-bot-briend-qcud.appspot.com",
+      messagingSenderId: "562983887948",
+      appId: "1:562983887948:web:7d2df2b4f45bcb91a780e9",
+      measurementId: "G-BEEKWDXT9Q"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    let cloudDB = firebase.firestore();
+//------Button Event----//
 
   </script>
 </body>
