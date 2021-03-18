@@ -164,7 +164,7 @@
     
     async function insert(){
       const profile = await liff.getProfile()
-      cloudDB.collection("user").doc(id).set(
+      cloudDB.collection("user").doc(profile.userId).set(
         {
         UserId: profile.userId,
         DisplayName: profile.displayName
