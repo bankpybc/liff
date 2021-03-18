@@ -167,7 +167,8 @@
       cloudDB.collection("user").doc(profile.userId).set(
         {
         UserId: profile.userId,
-        DisplayName: profile.displayName
+        DisplayName: profile.displayName,
+        pictureUrl: profile.pictureUrl
       })
       .then(function(docRef){
         console.log("Document written with ID", profile.userId);
