@@ -176,8 +176,8 @@
       .catch(function(error){
         console.error("Error adding document",error);
       })*/
-      console.log("Document written with ID", id);
-      console.log("Document written with displayName", displayName);
+      console.log("Document written with ID", profile.userId);
+      console.log("Document written with displayName", profile.displayName);
     }
     async function main() {
       liff.ready.then(() => {
