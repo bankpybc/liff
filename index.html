@@ -163,8 +163,8 @@
     }
     
     function insert(){
-      let id = profile.userId;
-      let name = profile.displayName;
+      let id = document.getElementById("userId").append(profile.userId);
+      let name = document.getElementById("displayName").append(profile.displayName);
       cloudDB.collection("user").doc(id).set(
         {
         UserId: id,
