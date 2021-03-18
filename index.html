@@ -164,21 +164,18 @@
     
     async function insert(){
       const profile = await liff.getProfile()
-      let id = userId;
-      let name = displayName;
-     /* cloudDB.collection("user").doc(id).set(
+      cloudDB.collection("user").doc(id).set(
         {
-        UserId: id,
-        DisplayName: name
+        UserId: profile.userId,
+        DisplayName: profile.displayName
       })
       .then(function(docRef){
-        console.log("Document written with ID", id);
+        console.log("Document written with ID", profile.userId);
+      console.log("Document written with displayName", profile.displayName);
       })
       .catch(function(error){
         console.error("Error adding document",error);
-      })*/
-      console.log("Document written with ID", profile.userId);
-      console.log("Document written with displayName", profile.displayName);
+      })
     }
     async function main() {
       liff.ready.then(() => {
