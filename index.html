@@ -47,10 +47,12 @@
     const firebaseConfig = {
       apiKey: "AIzaSyCKcc7ZTsorh4xTzTecalmvytFqRzAl0_s",
       authDomain: "line-bot-briend-qcud.firebaseapp.com",
+      databaseURL: "https://line-bot-briend-qcud-default-rtdb.firebaseio.com",
       projectId: "line-bot-briend-qcud",
       storageBucket: "line-bot-briend-qcud.appspot.com",
       messagingSenderId: "562983887948",
       appId: "1:562983887948:web:7d2df2b4f45bcb91a780e9",
+      measurementId: "G-BEEKWDXT9Q"
     };
     
     firebase.initializeApp(firebaseConfig);
@@ -161,8 +163,8 @@
     }
     
     function insert(){
-      let id = userId;
-      let name = displayName;
+      let id = profile.userId;
+      let name = profile.displayName;
       cloudDB.collection("user").doc(id).set(
         {
         UserId: id,
