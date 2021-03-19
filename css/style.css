@@ -12,7 +12,7 @@ p {
 #pictureUrl {
   display: block;
   margin: 0 auto;
-  width: 12%;
+  width: 15%;
   display: -moz-box;
   display: -webkit-box;
   display: box;
@@ -141,7 +141,7 @@ body {
 }
 
 .user-details h4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .filter-btn {
