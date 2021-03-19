@@ -209,7 +209,7 @@
 
     async function getIncomeExpenditure() {
       const profile = await liff.getProfile()
-      var total ;
+      let total ;
       cloudDB.collection("incomeUser").doc(profile.userId).get()
         .then(function (doc) {
           if (doc.exists) {
