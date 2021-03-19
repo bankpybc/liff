@@ -114,7 +114,7 @@
 
     async function getFriendship() {
       const friend = await liff.getFriendship()
-      document.getElementById("friendship").append(friend.friendFlag)
+     // document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {
         if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
           window.location = "https://line.me/R/ti/p/@665nmcge"
@@ -141,17 +141,17 @@
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
-      document.getElementById("statusMessage").append(profile.statusMessage)
+     // document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+     // document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
-      document.getElementById("os").append(liff.getOS())
-      document.getElementById("language").append(liff.getLanguage())
-      document.getElementById("version").append(liff.getVersion())
-      document.getElementById("accessToken").append(liff.getAccessToken())
-      document.getElementById("isInClient").append(liff.isInClient())
+     // document.getElementById("os").append(liff.getOS())
+     // document.getElementById("language").append(liff.getLanguage())
+     // document.getElementById("version").append(liff.getVersion())
+    //  document.getElementById("accessToken").append(liff.getAccessToken())
+    //  document.getElementById("isInClient").append(liff.isInClient())
       if (liff.isInClient()) { // mobile
         document.getElementById("btnLogOut").style.display = "none"
       } else { // external browser
@@ -195,7 +195,7 @@
       })
 
     }
-      let income,paid,incomeName,paidName;
+     // let income,paid,incomeName,paidName;
     async function insert(){
       const profile = await liff.getProfile()
       cloudDB.collection("user").doc(profile.userId).set(
