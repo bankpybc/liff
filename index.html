@@ -38,7 +38,7 @@
       <h3>Total ยอดเงินสะสม</h3>
       <ul class="tasks">
         <li class="three yellow">
-          <span class="task-title" id="totalExpenditure"></span>
+          <span class="task-title" id=total></span>
         </li>
       </ul>
 
@@ -50,25 +50,29 @@
           <span class="task-cat" id="income"></span>
         </li>
       </ul>
+
       <h3>Total income รายรับทั้งหมด</h3>
       <ul class="tasks">
         <li class="two green">
           <span class="task-title" id="totalIncome"></span>
         </li>
       </ul>
+
+      <h3>Expenditure รายจ่ายล่าสุด</h3>
       <ul>
-        <h3>Expenditure รายจ่ายล่าสุด</h3>
         <li class="one red">
           <span class="task-title" id="expenditureName"></span>
           <span class="task-time" id="dateExpenditure"></span>
           <span class="task-cat" id="expenditure"></span>
         </li>
       </ul>
+
       <h3>Total expenditure รายจ่ายทั้งหมด</h3>
       <ul class="tasks">
         <li class="one red">
           <span class="task-title" id="totalExpenditure"></span>
         </li>
+
       </ul>
     </div>
   </div>
@@ -211,8 +215,11 @@
         document.getElementById("btnClose").style.display = "none"
       }
     }
+
+
     async function getIncomeExpenditure() {
       const profile = await liff.getProfile()
+      var total ;
       cloudDB.collection("incomeUser").doc(profile.userId).get()
         .then(function (doc) {
           if (doc.exists) {
@@ -222,6 +229,7 @@
             document.getElementById("totalIncome").append(doc.data().totalIncome)
             document.getElementById("incomeName").append(doc.data().incomeName)
             document.getElementById("dateIncome").append(doc.data().date)
+            total = total + totalIncome;
           }
           else {
             console.log("not found income");
@@ -240,6 +248,7 @@
             document.getElementById("totalExpenditure").append(doc.data().totalPaid)
             document.getElementById("expenditureName").append(doc.data().paidName)
             document.getElementById("dateExpenditure").append(doc.data().date)
+            total = total + totalPaid;
           }
           else {
             console.log("not found expenditure");
@@ -248,7 +257,7 @@
         .catch(function (error) {
           console.log("error", error);
         })
-
+        document.getElementById("total").append(total);
     }
     // let income,paid,incomeName,paidName;
     async function insert() {
