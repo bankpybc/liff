@@ -42,158 +42,52 @@
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
 
-  <div id="rapp"></div>
-  <script>
-const { useRef, useEffect } = React
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
-const AppWrap = styled.div`
-  grid-column-start: 2;
-`
-
-const AppContainer = styled.div`
-  background: conic-gradient(from -90deg at 50% 105%, white, orchid);
-  border-radius: 10px;
-  margin: 45px auto;
-  max-width: 350px;
-  padding: 95px 15px 55px 15px;
-  box-shadow: 0 19px 38px rgba(126, 55, 158, .017), 0 15px 12px rgba(43, 17, 46, .19);
-  position: relative;
-  overflow: hidden;
-`
-
-const HeaderImage = styled.div`
-  width: 100%;
-  height: 175px; 
-  position: absolute;
-  top: 0;
-  left: -10%;
-  right: -10%;
-  margin: 0 auto;
-  z-index: 1;
-  overflow: hidden;
-
-  img {
-    height: 140%;
-    position: absolute;
-    bottom: 0;
-    margin: auto;
-    object-fit: contain;
-  }
-`
-
-const OverlayElm = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(45deg, #e359a7, #643d80);
-  background-size: cover;
-  opacity: .65;
-  z-index: 2;
-`
-
-const HeaderContainer = styled.header`
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-`
-
-const ProfileImage = styled.div`
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0px 2px 22px 0px rgba(45, 41, 54, .55), 0px 0px 0px 4px rgba(45, 41, 54, 0.19);
-  z-index: 3;
-
-  img {
-    width: 100%;
-  }
-`
-
-const ContentContainer = styled.div`
-  margin: 0 auto;
-  text-align: center;
-  color: rgb(85 65 93);
-
-  h2 {
-    margin: 35px 0 12px;
-    font-size: 1.7rem;
-    font-weight: 700;
-  }
-
-  h3 {
-    font-size: .8rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    
-    &:after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 3px;
-      background-color: #cc88cc;
-      margin: 0 auto;
-      position: relative;
-      top: 12px;
-    }
-  }
-
-  p {
-    font-size: 1rem;
-  }
-`
-
-const Image = () => (<>
-  <HeaderImage>
-    <OverlayElm />
-    <img src="https://images.unsplash.com/photo-1615818499660-30bb5816e1c7" alt="header image" />
-  </HeaderImage>
-</>)
-
-const App = () => {
-  let app = useRef(null)
-  let card = useRef(null)
-  let img = useRef(null)
-  let content = useRef(null)
-  
-  let tl = new TimelineLite()
-  
-  useEffect(() => {
-    TweenMax.to(app, 0, {css: {visibility: 'visible'}})
-    tl.from(card, 1.4, {y: 1280, ease: Power3.easeOut, scale: 0, ease: Power3.easeOut}, .2)
-      .from(card.firstElementChild, 1.4, {scale: 5.5, ease: Power3.easeOut}, .4)
-      .from(img.firstElementChild, 1.7, {y: -30, ease: Power3.easeOut, scale: 1.7, ease: Power3.easeOut}, .7)
-      .from(content, 2, {css:{ opacity:0 }, ease:Quad.easeInOut}, .7)
-  }, [])
-  
-  return (<>
-    <AppWrap ref={el => app = el}>
-      <AppContainer ref={el => card = el}>
-        <Image />
-        <HeaderContainer>
-          <ProfileImage ref={el => img = el}>
-            <img src="https://images.unsplash.com/photo-1504884790557-80daa3a9e621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="profile image" />
-          </ProfileImage>
-        </HeaderContainer>
-        <ContentContainer ref={el => content = el}>
-          <h2>Jane Doe</h2>
-          <h3>Developer</h3>
-          <p>The cake is a lie.</p>
-        </ContentContainer>
-      </AppContainer>
-    </AppWrap>
-</>)
-}
-
-ReactDOM.render(<App />, document.getElementById("rapp"));
-
-
-  </script>
+  <div class="wrapper">
+      <div class="left">
+          <img src="https://i.imgur.com/cMy8V5j.png" alt="user" width="100">
+          <h4>Alex William</h4>
+           <p>UI Developer</p>
+      </div>
+      <div class="right">
+          <div class="info">
+              <h3>Information</h3>
+              <div class="info_data">
+                   <div class="data">
+                      <h4>Email</h4>
+                      <p>alex@gmail.com</p>
+                   </div>
+                   <div class="data">
+                     <h4>Phone</h4>
+                      <p>0001-213-998761</p>
+                </div>
+              </div>
+          </div>
+        
+        <div class="projects">
+              <h3>Projects</h3>
+              <div class="projects_data">
+                   <div class="data">
+                      <h4>Recent</h4>
+                      <p>Lorem ipsum dolor sit amet.</p>
+                   </div>
+                   <div class="data">
+                     <h4>Most Viewed</h4>
+                      <p>dolor sit amet.</p>
+                </div>
+              </div>
+          </div>
+        
+          <div class="social_media">
+              <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+      </div>
+  </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
