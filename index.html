@@ -82,7 +82,7 @@
   
 
    
-  <p><a href="https://bankpybc.github.io/liff/path/?param=9">Link to Path</a></p>
+  
 
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
@@ -202,7 +202,13 @@
       //  document.getElementById("accessToken").append(liff.getAccessToken())
       //  document.getElementById("isInClient").append(liff.isInClient())
       if (liff.isInClient()) { // mobile
+        document.getElementById("btnMsg").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
+
+        document.getElementById("btnShare").style.display = "none"
         document.getElementById("btnLogOut").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
       } else { // external browser
         document.getElementById("btnMsg").style.display = "none"
         document.getElementById("btnScanCode").style.display = "none"
