@@ -10,39 +10,76 @@
 </head>
 
 <body>
-  
+  <div class="filter">
+  </div>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>identifiant </th>
+      <th>date de naissance </th>
+      <th>salaire</th>
+    </tr>
 
-<table class="table table-hover table-success border-light">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Lorem</th>
-      <th scope="col">Ipsum</th>
-      <th scope="col">Dolor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Sit</td>
-      <td>Amet</td>
-      <td>Consectetur</td>
+   <tr>
+      <td>1</td>
+      <td>Jean</td>
+      <td>leBon</td>
+      <td>1368</td>
+      <td>18 Nov 1962</td>
+      <td>5000$</td>
     </tr>
     <tr>
-      <th scope="row">2</th>
-      <td>Adipisicing</td>
-      <td>Elit</td>
-      <td>Sint</td>
+      <td>2</td>
+      <td>jack</td>
+      <td>Duppont</td>
+      <td>1368</td>
+      <td>18 Dec 1962</td>
+      <td>2000$</td>
     </tr>
     <tr>
-      <th scope="row">3</th>
-      <td>Hic</td>
-      <td>Fugiat</td>
-      <td>Temporibus</td>
+      <td>3</td>
+      <td>Jean</td>
+      <td>leBon</td>
+      <td>1368</td>
+      <td>18 Nov 1972</td>
+      <td>4200$</td>
     </tr>
-  </tbody>
+    <tr>
+      <td>4</td>
+      <td>Nadia</td>
+      <td>leBon</td>
+      <td>1368</td>
+      <td>18 Mar 1982</td>
+      <td>6300$</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Nadia</td>
+      <td>leBon</td>
+      <td>1368</td>
+      <td>18 Mar 1982</td>
+      <td>6300$</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Nadia</td>
+      <td>leBon</td>
+      <td>1368</td>
+      <td>18 Mar 1982</td>
+      <td>6300$</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Nadia</td>
+      <td>leBon</td>
+      <td>1368</td>
+      <td>18 Mar 1982</td>
+      <td>6300$</td>
+    </tr>
 
-</table>
+  </table>
 
 
   <img id="pictureUrl">
@@ -61,7 +98,7 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  
+
 
   <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
@@ -78,7 +115,7 @@
       appId: "1:562983887948:web:7d2df2b4f45bcb91a780e9",
       measurementId: "G-BEEKWDXT9Q"
     };
-    
+
     firebase.initializeApp(firebaseConfig);
     let cloudDB = firebase.firestore();
 
@@ -133,7 +170,7 @@
 
     async function getFriendship() {
       const friend = await liff.getFriendship()
-     // document.getElementById("friendship").append(friend.friendFlag)
+      // document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {
         if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
           window.location = "https://line.me/R/ti/p/@665nmcge"
@@ -160,17 +197,17 @@
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
-     // document.getElementById("statusMessage").append(profile.statusMessage)
+      // document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-     // document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      // document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
-     // document.getElementById("os").append(liff.getOS())
-     // document.getElementById("language").append(liff.getLanguage())
-     // document.getElementById("version").append(liff.getVersion())
-    //  document.getElementById("accessToken").append(liff.getAccessToken())
-    //  document.getElementById("isInClient").append(liff.isInClient())
+      // document.getElementById("os").append(liff.getOS())
+      // document.getElementById("language").append(liff.getLanguage())
+      // document.getElementById("version").append(liff.getVersion())
+      //  document.getElementById("accessToken").append(liff.getAccessToken())
+      //  document.getElementById("isInClient").append(liff.isInClient())
       if (liff.isInClient()) { // mobile
         document.getElementById("btnLogOut").style.display = "none"
       } else { // external browser
@@ -179,58 +216,58 @@
         document.getElementById("btnClose").style.display = "none"
       }
     }
-    async function getIncomeExpenditure(){
+    async function getIncomeExpenditure() {
       const profile = await liff.getProfile()
       cloudDB.collection("incomeUser").doc(profile.userId).get()
-      .then(function(doc){
-        if(doc.exists){
-          console.log(doc.data().income);
-          console.log(doc.data().incomeName);
-          document.getElementById("income").append(doc.data().totalIncome)
-          document.getElementById("incomeName").append(doc.data().incomeName)
-        }
-        else{
+        .then(function (doc) {
+          if (doc.exists) {
+            console.log(doc.data().income);
+            console.log(doc.data().incomeName);
+            document.getElementById("income").append(doc.data().totalIncome)
+            document.getElementById("incomeName").append(doc.data().incomeName)
+          }
+          else {
             console.log("not found income");
-        }
-      })
-      .catch(function(error){
-        console.log("error",error);
-      })
-        
+          }
+        })
+        .catch(function (error) {
+          console.log("error", error);
+        })
+
       cloudDB.collection("paidUser").doc(profile.userId).get()
-      .then(function(doc){
-        if(doc.exists){
-          console.log(doc.data().paid);
-          console.log(doc.data().paidName);
-          document.getElementById("expenditure").append(doc.data().totalPaid)
-          document.getElementById("expenditureName").append(doc.data().paidName)
-        }
-        else{
+        .then(function (doc) {
+          if (doc.exists) {
+            console.log(doc.data().paid);
+            console.log(doc.data().paidName);
+            document.getElementById("expenditure").append(doc.data().totalPaid)
+            document.getElementById("expenditureName").append(doc.data().paidName)
+          }
+          else {
             console.log("not found expenditure");
-        }
-      })
-      .catch(function(error){
-        console.log("error",error);
-      })
+          }
+        })
+        .catch(function (error) {
+          console.log("error", error);
+        })
 
     }
-     // let income,paid,incomeName,paidName;
-    async function insert(){
+    // let income,paid,incomeName,paidName;
+    async function insert() {
       const profile = await liff.getProfile()
       cloudDB.collection("user").doc(profile.userId).set(
         {
-        userId: profile.userId,
-        displayName: profile.displayName,
-        pictureUrl: profile.pictureUrl,
+          userId: profile.userId,
+          displayName: profile.displayName,
+          pictureUrl: profile.pictureUrl,
 
-      })
-      .then(function(docRef){
-        console.log("Document written with ID", profile.userId);
-      console.log("Document written with displayName", profile.displayName);
-      })
-      .catch(function(error){
-        console.error("Error adding document",error);
-      })
+        })
+        .then(function (docRef) {
+          console.log("Document written with ID", profile.userId);
+          console.log("Document written with displayName", profile.displayName);
+        })
+        .catch(function (error) {
+          console.error("Error adding document", error);
+        })
     }
     async function main() {
       liff.ready.then(() => {
@@ -238,10 +275,10 @@
         if (liff.isLoggedIn()) {
           getEnvironment()
           getUserProfile()
-        //  getContext()
+          //  getContext()
           getFriendship()
           getIncomeExpenditure()
-         // createUniversalLink()
+          // createUniversalLink()
         } else {
           liff.login()
         }
@@ -251,8 +288,6 @@
     }
     main()
   </script>
-</body >
+</body>
 
-</html >
-
-
+</html>
