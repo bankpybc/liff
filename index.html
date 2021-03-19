@@ -18,9 +18,9 @@
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
-  <p id="income"><b>income:</b> </p>
+  <p id="totalIncome"><b>totalIncome:</b> </p>
   <p id="incomeName"><b>incomeName:</b> </p>
-  <p id="expenditure"><b>expenditure:</b> </p>
+  <p id="totalExpenditure"><b>totalExpenditure:</b> </p>
   <p id="expenditureName"><b>expenditureName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
   <p id="decodedIDToken"><b>email:</b> </p>
@@ -43,8 +43,6 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <div style="text-align:center;margin-top:25px;font-weight:bold;texxxt-decoration:none;">
-    Visit <a href="https://themeshook.com/" px;target="_blank">My Blog</a>
   </div>
   <div class="muck-up">
     <div class="overlay"></div>
@@ -55,10 +53,11 @@
         <span class="ion-ios-more-outline"></span>
       </div>
       <div class="user-profile">
-        <img src="https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/profile.jpg">
+        <img id="pictureUrl">
         <div class="user-details">
-          <h4>Arjun Amgain</h4>
-          <p>Web/Front-end Designer</p>
+          <h4 id="displayName"><b>Name:</b</h4>
+          <p id="totalIncome"><b>รายรับทั้งหมด:</b> </p>
+          <p id="totalExpenditure"><b>รายจ่ายทั้งหมด:</b> </p>
         </div>
       </div>
     </div>
@@ -297,7 +296,7 @@ $('#three').click(function() {
         if(doc.exists){
           console.log(doc.data().income);
           console.log(doc.data().incomeName);
-          document.getElementById("income").append(doc.data().totalIncome)
+          document.getElementById("totalIncome").append(doc.data().totalIncome)
           document.getElementById("incomeName").append(doc.data().incomeName)
         }
         else{
@@ -313,7 +312,7 @@ $('#three').click(function() {
         if(doc.exists){
           console.log(doc.data().paid);
           console.log(doc.data().paidName);
-          document.getElementById("expenditure").append(doc.data().totalPaid)
+          document.getElementById("totalExpenditure").append(doc.data().totalPaid)
           document.getElementById("expenditureName").append(doc.data().paidName)
         }
         else{
