@@ -301,7 +301,7 @@ ul.tasks li.yellow:after {
 ul.tasks::after {
   content: '';
   position: absolute;
-  height: 400px;
+  height: 100%;
   width: 1px;
   background: #eee;
   left: 20px;
