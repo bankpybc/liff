@@ -18,8 +18,8 @@
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
-  <p id="displayName"><b>income:</b> </p>
-  <p id="displayName"><b>expenditure:</b> </p>
+  <p id="income"><b>income:</b> </p>
+  <p id="expenditure"><b>expenditure:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
   <p id="decodedIDToken"><b>email:</b> </p>
   <p id="type"><b>type:</b> </p>
@@ -163,15 +163,14 @@
         document.getElementById("btnClose").style.display = "none"
       }
     }
-    let income,paid,incomeName,paidName;
     function getIncomeExpenditure(){
       cloudDB.collection("user").doc(profile.userId).get()
       .then(function(doc){
         if(doc.exists){
-          income = doc.data().income;
-          incomeName = doc.data().incomeName;
-          paid = doc.data().paid;
-          paid = doc.data().paidName;
+          document.getElementById("income").append(doc.data().income)
+          document.getElementById("incomeName").append(doc.data().incomeName)
+          document.getElementById("paid").append(doc.data().paid)
+          document.getElementById("paidName").append(doc.data().paidName)
         }
         else{
             console.log("not found");
