@@ -224,6 +224,7 @@
             document.getElementById("incomeName").append(doc.data().incomeName)
             document.getElementById("dateIncome").append(doc.data().date)
             total = total + Number(doc.data().totalIncome);
+            console.log("total:income", total);
           }
           else {
             console.log("not found income");
@@ -243,6 +244,7 @@
             document.getElementById("expenditureName").append(doc.data().paidName)
             document.getElementById("dateExpenditure").append(doc.data().date)
             total = total - Number(doc.data().totalPaid);
+            console.log("total:paid", total);
           }
           else {
             console.log("not found expenditure");
@@ -251,7 +253,7 @@
         .catch(function (error) {
           console.log("error", error);
         })
-        console.log(total);
+        console.log("finaltotal",total);
         document.getElementById("total").append(total);
     }
     // let income,paid,incomeName,paidName;
