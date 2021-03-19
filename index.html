@@ -166,7 +166,8 @@
       }
     }
     async function getIncomeExpenditure(){
-      await cloudDB.collection("user").doc(profile.userId).get()
+      const profile = await liff.getProfile()
+      cloudDB.collection("user").doc(profile.userId).get()
       .then(function(doc){
         if(doc.exists){
           console.log(doc.data().income);
