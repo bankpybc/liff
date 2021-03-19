@@ -255,10 +255,6 @@
             document.getElementById("dateExpenditure").append(doc.data().date)
             total = total - Number(doc.data().totalPaid);
             console.log("total:paid", total);
-          /*  cloudDB.collection("totalUser").doc(profile.userId).set({
-              total: total,
-              total: profile.userId
-            });*/
             document.getElementById("total").append(total);
           }
           else {
