@@ -55,9 +55,9 @@
       <div class="user-profile">
         <img id="pictureUrl">
         <div class="user-details">
-          <h4 id="displayName">Name:</b</h4>
-          <d id="totalIncome">รายรับทั้งหมด:</d>
-          <d id="totalExpenditure">รายจ่ายทั้งหมด: </d>
+          <h4 id="displayName"><b>Name:</b</h4>
+          <p id="totalIncome"><b>รายรับทั้งหมด:</b></p>
+          <p id="totalExpenditure"><b>รายจ่ายทั้งหมด: </b></p>
         </div>
       </div>
     </div>
@@ -119,47 +119,6 @@
       </ul>
     </div>
   </div>
-  <script>
-
-$(function() {
-  $('.toggle-btn').click(function() {
-    $('.filter-btn').toggleClass('open');
-
-  });
-
-  $('.filter-btn a').click(function() {
-    $('.filter-btn').removeClass('open');
-
-  });
-
-});
-
-$('#all').click(function() {
-
-  $('ul.tasks li').slideDown(300);
-
-});
-
-$('#one').click(function() {
-  $('.tasks li:not(.one)').slideUp(300, function() {
-    $('.one').slideDown(300);
-
-  });
-});
-
-$('#two').click(function() {
-  $('.tasks li:not(.two)').slideUp(300, function() {
-    $('.two').slideDown(300);
-
-  });
-});
-$('#three').click(function() {
-  $('.tasks li:not(.three)').slideUp(300, function() {
-    $('.three').slideDown(300);
-
-  });
-});
-  </script>
 
   <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
