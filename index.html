@@ -19,7 +19,9 @@
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="income"><b>income:</b> </p>
+  <p id="incomeName"><b>incomeName:</b> </p>
   <p id="expenditure"><b>expenditure:</b> </p>
+  <p id="expenditureName"><b>expenditureName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
   <p id="decodedIDToken"><b>email:</b> </p>
   <p id="type"><b>type:</b> </p>
@@ -167,10 +169,14 @@
       cloudDB.collection("user").doc(profile.userId).get()
       .then(function(doc){
         if(doc.exists){
+          console.log(doc.data().income);
+          console.log(doc.data().incomeName);
+          console.log(doc.data().paid);
+          console.log(doc.data().paidName);
           document.getElementById("income").append(doc.data().income)
           document.getElementById("incomeName").append(doc.data().incomeName)
-          document.getElementById("paid").append(doc.data().paid)
-          document.getElementById("paidName").append(doc.data().paidName)
+          document.getElementById("expenditure").append(doc.data().paid)
+          document.getElementById("expenditureName").append(doc.data().paidName)
         }
         else{
             console.log("not found");
