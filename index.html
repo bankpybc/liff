@@ -87,7 +87,6 @@
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
-  <button onclick="openWindow()">Open Window</button>
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
@@ -208,6 +207,10 @@
         document.getElementById("btnMsg").style.display = "none"
         document.getElementById("btnScanCode").style.display = "none"
         document.getElementById("btnClose").style.display = "none"
+
+        document.getElementById("btnShare").style.display = "none"
+        document.getElementById("btnLogOut").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
       }
     }
 
@@ -246,6 +249,10 @@
             document.getElementById("dateExpenditure").append(doc.data().date)
             total = total - Number(doc.data().totalPaid);
             console.log("total:paid", total);
+          /*  cloudDB.collection("totalUser").doc(profile.userId).set({
+              total: total,
+              total: profile.userId
+            });*/
             document.getElementById("total").append(total);
           }
           else {
