@@ -46,6 +46,7 @@
           <span class="task-title" id="incomeName"></span>
           <span class="task-time" id="dateIncome"></span>
           <span class="task-cat" id="income"></span>
+          <a class="task-cat">บาท</a>
         </li>
       </ul>
 
@@ -62,6 +63,7 @@
           <span class="task-title" id="expenditureName"></span>
           <span class="task-time" id="dateExpenditure"></span>
           <span class="task-cat" id="expenditure"></span>
+          <a class="task-cat">บาท</a>
         </li>
       </ul>
 
@@ -69,6 +71,7 @@
       <ul class="tasks">
         <li class="one red">
           <span class="task-title" id="totalExpenditure"></span>
+          <a>บาท</a>
         </li>
       </ul>
     </div>
@@ -210,7 +213,7 @@
 
     async function getIncomeExpenditure() {
       const profile = await liff.getProfile()
-      let total ;
+      var total = 0 ;
       cloudDB.collection("incomeUser").doc(profile.userId).get()
         .then(function (doc) {
           if (doc.exists) {
