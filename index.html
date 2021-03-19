@@ -167,26 +167,37 @@
     }
     async function getIncomeExpenditure(){
       const profile = await liff.getProfile()
-      cloudDB.collection("user").doc(profile.userId).get()
+      cloudDB.collection("incomeUser").doc(profile.userId).get()
       .then(function(doc){
         if(doc.exists){
           console.log(doc.data().income);
           console.log(doc.data().incomeName);
-          console.log(doc.data().paid);
-          console.log(doc.data().paidName);
           document.getElementById("income").append(doc.data().income)
           document.getElementById("incomeName").append(doc.data().incomeName)
-          document.getElementById("expenditure").append(doc.data().paid)
-          document.getElementById("expenditureName").append(doc.data().paidName)
         }
         else{
-            console.log("not found");
+            console.log("not found income");
         }
       })
       .catch(function(error){
         console.log("error",error);
       })
         
+      cloudDB.collection("paidUser").doc(profile.userId).get()
+      .then(function(doc){
+        if(doc.exists){
+          console.log(doc.data().paid);
+          console.log(doc.data().paidName);
+          document.getElementById("expenditure").append(doc.data().paid)
+          document.getElementById("expenditureName").append(doc.data().paidName)
+        }
+        else{
+            console.log("not found expenditure");
+        }
+      })
+      .catch(function(error){
+        console.log("error",error);
+      })
 
     }
       let income,paid,incomeName,paidName;
