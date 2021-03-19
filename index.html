@@ -10,25 +10,21 @@
 </head>
 
 <body>
-  <div class="filter">
+  <div >
   </div>
   <table>
     <tr>
-      <th>#</th>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th>identifiant </th>
-      <th>date de naissance </th>
-      <th>salaire</th>
+      <th>ชื่อรายการ</th>
+      <th>รายรับ</th>
+      <th>เวลาบันทึก</th>
+      <th>รายรับรวม </th>
     </tr>
 
-   <tr>
-      <td>1</td>
-      <td>Jean</td>
-      <td>leBon</td>
-      <td>1368</td>
-      <td>18 Nov 1962</td>
-      <td>5000$</td>
+    <tr>
+      <th></th>
+      <th>รายรับ</th>
+      <th>เวลาบันทึก</th>
+      <th>รายรับรวม </th>
     </tr>
     <tr>
       <td>2</td>
@@ -79,13 +75,29 @@
       <td>6300$</td>
     </tr>
 
+    <tr>
+
+      <td>8</td>
+
+      <td>Nadia</td>
+
+      <td>leBon</td>
+
+      <td>1368</td>
+
+      <td>18 Mar 1982</td>
+
+      <td>6300$</td>
+
+    </tr>
+
   </table>
 
 
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
-  <p id="income"><b>income:</b> </p>
+  <p id="totalIncome"><b>Totalincome:</b> </p>
   <p id="incomeName"><b>incomeName:</b> </p>
   <p id="expenditure"><b>expenditure:</b> </p>
   <p id="expenditureName"><b>expenditureName:</b> </p>
@@ -221,9 +233,9 @@
       cloudDB.collection("incomeUser").doc(profile.userId).get()
         .then(function (doc) {
           if (doc.exists) {
-            console.log(doc.data().income);
+            console.log(doc.data().totalIncome);
             console.log(doc.data().incomeName);
-            document.getElementById("income").append(doc.data().totalIncome)
+            document.getElementById("totalIncome").append(doc.data().totalIncome)
             document.getElementById("incomeName").append(doc.data().incomeName)
           }
           else {
