@@ -34,15 +34,15 @@
       </div>
       <ul class="tasks">
         <li class="one red">
-          <span class="task-title">Make New Icon</span>
-          <span class="task-time">5pm</span>
-          <span class="task-cat">Web App</span>
+          <span class="task-title" id="incomeName"></span>
+          <span class="task-time" id="dateIncome"></span>
+          <span class="task-cat" id="income"></span>
   
         </li>
         <li class="one red">
-          <span class="task-title">Catch up with Brian</span>
-          <span class="task-time">3pm</span>
-          <span class="task-cat">Mobile Project</span>
+          <span class="task-title" id="expenditureName"></span>
+          <span class="task-time" id="dateExpenditure"></span>
+          <span class="task-cat" id="expenditure"></span>
   
         </li>
         <li class="two green">
@@ -69,9 +69,9 @@
         </li>
   
         <li class="three yellow">
-          <span class="task-title">Lunch with Mary</span>
-          <span class="task-time">2pm</span>
-          <span class="task-cat">Grill House</span>
+          <span class="task-title" id="expenditure"></span>
+          <span class="task-time" id="dateExpenditure"></span>
+          <span class="task-cat" id="totalExpenditure"></span>
         </li>
         <li class="three yellow">
           <span class="task-title">Team Meeting</span>
@@ -228,8 +228,10 @@
           if (doc.exists) {
             console.log(doc.data().totalIncome);
             console.log(doc.data().incomeName);
+            document.getElementById("income").append(doc.data().income)
             document.getElementById("totalIncome").append(doc.data().totalIncome)
             document.getElementById("incomeName").append(doc.data().incomeName)
+            document.getElementById("dateIncome").append(doc.data().date)
           }
           else {
             console.log("not found income");
@@ -244,8 +246,10 @@
           if (doc.exists) {
             console.log(doc.data().paid);
             console.log(doc.data().paidName);
-            document.getElementById("expenditure").append(doc.data().totalPaid)
+            document.getElementById("expenditure").append(doc.data().paid)
+            document.getElementById("totalExpenditure").append(doc.data().totalPaid)
             document.getElementById("expenditureName").append(doc.data().paidName)
+            document.getElementById("dateExpenditure").append(doc.data().date)
           }
           else {
             console.log("not found expenditure");
