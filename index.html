@@ -35,7 +35,8 @@
       <h3>Total ยอดเงินสะสม</h3>
       <ul class="tasks">
         <li class="three yellow">
-          <span class="task-title" id=total></span>
+          <span class="task-title" id="total"></span>
+          <a>บาท</a>
         </li>
       </ul>
 
@@ -73,7 +74,7 @@
     </div>
   </div>
 
-  
+
   
 
    
@@ -235,7 +236,7 @@
             console.log(doc.data().paid);
             console.log(doc.data().paidName);
             document.getElementById("expenditure").append(doc.data().paid)
-            document.getElementById("totalExpenditure").append(doc.data().totalPaid).append("บาท")
+            document.getElementById("totalExpenditure").append(doc.data().totalPaid)
             document.getElementById("expenditureName").append(doc.data().paidName)
             document.getElementById("dateExpenditure").append(doc.data().date)
             total = total + doc.data().totalPaid;
